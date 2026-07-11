@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Aha Button Growth</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        #aha-btn {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="aha-btn">아하!</button>
+
+    <script>
+        const btn = document.getElementById('aha-btn');
+        let scale = 1;
+        
+        const colors = ['#FF0000', '#FF7F00', '#FFFF00', '#008000', '#0000FF', '#4B0082', '#9400D3'];
+        let colorIndex = 0;
+
+        btn.addEventListener('click', () => {
+            // 버튼 커지기
+            scale += 0.2;
+            btn.style.transform = `scale(${scale})`;
+            
+            // 배경색 무지개색 순서로 바꾸기
+            document.body.style.backgroundColor = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length;
+        });
+    </script>
+</body>
+</html>
